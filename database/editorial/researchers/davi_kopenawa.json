@@ -1,0 +1,37 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "name": "Davi Kopenawa & Bruce Albert",
+    "photo": "DK",
+    "affiliation": "Hutukara Associação Yanomami · IRD (Institut de Recherche pour le Développement)",
+    "bio": "Davi Kopenawa é xamã e liderança Yanomami, presidente da Hutukara, indicado ao Nobel da Paz e laureado com o Right Livelihood Award (2019). Bruce Albert é antropólogo francês do IRD/CNRS que conviveu com os Yanomami por mais de 40 anos, atuando como tradutor e organizador da palavra de Davi.",
+    "research": {
+      "title": "A Queda do Céu: Palavras de um Xamã Yanomami",
+      "meta": "Companhia das Letras, 2015 · 768 páginas · Livro-testemunho",
+      "summary": "Memória, cosmologia e crítica do \"povo da mercadoria\" transmitidas por Davi Kopenawa e registradas por Bruce Albert ao longo de 30 anos. O livro aborda os espíritos xapiri, a iniciação xamânica, a chegada dos garimpeiros e a iminência da queda do céu — metáfora Yanomami para o colapso ecológico.",
+      "links": [
+        {
+          "icon": "fa-book",
+          "label": "Companhia das Letras",
+          "url": ""
+        },
+        {
+          "icon": "fa-graduation-cap",
+          "label": "Google Scholar",
+          "url": ""
+        },
+        {
+          "icon": "fa-globe",
+          "label": "Hutukara.org",
+          "url": ""
+        },
+        {
+          "icon": "fa-newspaper",
+          "label": "Resenha N+1",
+          "url": ""
+        }
+      ]
+    }
+  }
+}

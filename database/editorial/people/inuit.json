@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "inuit",
+    "lon": -94,
+    "lat": 67,
+    "name": "Inuit",
+    "region": "Ártico · CA/GL/US",
+    "population": "≈ 180.000",
+    "previewImage": "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "No silêncio do gelo escuta-se a respiração do tempo"
+  }
+}

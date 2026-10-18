@@ -1,0 +1,119 @@
+{
+  "status": "requires-editorial-review",
+  "content": [
+    {
+      "id": "y1968",
+      "year": 1968,
+      "title": "Primeiros antropólogos",
+      "desc": "Bruce Albert e Alcida Ramos iniciam pesquisa sistemática.",
+      "tag": "contato",
+      "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "alcida_ramos"
+    },
+    {
+      "id": "y1973",
+      "year": 1973,
+      "title": "Perimetral Norte",
+      "desc": "Estrada militar BR-210 corta o território, abre acesso e doenças.",
+      "tag": "colonial",
+      "image": "https://images.unsplash.com/photo-1518558997970-ba7e1ae44477?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "alcida_ramos"
+    },
+    {
+      "id": "y1978",
+      "year": 1978,
+      "title": "Fundação da CCPY",
+      "desc": "Comissão pela Criação do Parque Yanomami inicia campanha internacional.",
+      "tag": "mobilização",
+      "image": "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "carlo_zacquini"
+    },
+    {
+      "id": "y1987",
+      "year": 1987,
+      "title": "Corrida do garimpo",
+      "desc": "40 mil garimpeiros invadem o território — auge da crise sanitária.",
+      "tag": "tragédia",
+      "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "claudia_andujar"
+    },
+    {
+      "id": "y1992",
+      "year": 1992,
+      "title": "Demarcação histórica",
+      "desc": "9,6 milhões de hectares homologados durante a ECO-92.",
+      "tag": "demarcação",
+      "image": "https://images.unsplash.com/photo-1542640244-7e672d6cb466?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "carlo_zacquini",
+      "media": [
+        {
+          "type": "video",
+          "id": "demarcacao_video_sim",
+          "label": "Vídeo simulado · mapas e demarcação"
+        }
+      ]
+    },
+    {
+      "id": "y1993",
+      "year": 1993,
+      "title": "Massacre de Haximú",
+      "desc": "16 Yanomami assassinados por garimpeiros — primeiro caso julgado como genocídio.",
+      "tag": "tragédia",
+      "image": "https://images.unsplash.com/photo-1518558997970-ba7e1ae44477?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "mpf_relatorio"
+    },
+    {
+      "id": "y2004",
+      "year": 2004,
+      "title": "Hutukara Associação",
+      "desc": "Davi Kopenawa funda a primeira associação Yanomami.",
+      "tag": "institucional",
+      "image": "https://images.unsplash.com/photo-1604739542036-ed45eb7985fc?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "davi_kopenawa"
+    },
+    {
+      "id": "y2015",
+      "year": 2015,
+      "title": "A Queda do Céu",
+      "desc": "Livro de Davi Kopenawa e Bruce Albert traduzido para 8 idiomas.",
+      "tag": "mobilização",
+      "image": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "davi_kopenawa",
+      "media": [
+        {
+          "type": "audio",
+          "id": "voz_yanomami_sim",
+          "label": "Áudio simulado · saudação yanomami"
+        }
+      ]
+    },
+    {
+      "id": "y2019",
+      "year": 2019,
+      "title": "Right Livelihood Award",
+      "desc": "Davi Kopenawa recebe o \"Nobel Alternativo\" pela Hutukara.",
+      "tag": "mobilização",
+      "image": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "davi_kopenawa"
+    },
+    {
+      "id": "y2023",
+      "year": 2023,
+      "title": "Operação federal",
+      "desc": "Lula declara emergência. Início da maior operação de retirada de garimpeiros.",
+      "tag": "institucional",
+      "image": "https://images.unsplash.com/photo-1518558997970-ba7e1ae44477?q=80&w=400&auto=format&fit=crop",
+      "sourceKey": "mpf_relatorio",
+      "media": [
+        {
+          "type": "doc",
+          "label": "Documento técnico"
+        },
+        {
+          "type": "photo",
+          "label": "Galeria de campo"
+        }
+      ]
+    }
+  ]
+}

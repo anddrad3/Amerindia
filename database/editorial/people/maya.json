@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "maya",
+    "lon": -89,
+    "lat": 17,
+    "name": "Maya",
+    "region": "México · Guatemala",
+    "population": "≈ 7 milhões",
+    "previewImage": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Os deuses fizeram os homens de milho"
+  }
+}

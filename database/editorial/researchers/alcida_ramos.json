@@ -1,0 +1,32 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "name": "Alcida Rita Ramos",
+    "photo": "AR",
+    "affiliation": "Universidade de Brasília — Antropologia Social",
+    "bio": "Antropóloga brasileira pioneira nos estudos Yanomami, professora emérita da UnB. Iniciou pesquisa de campo entre os Sanumá (subgrupo Yanomami) em 1968 e participou ativamente da Comissão pela Criação do Parque Yanomami. É uma das principais teóricas do \"indigenismo\" brasileiro.",
+    "research": {
+      "title": "Memórias Sanumá: Espaço e Tempo em uma Sociedade Yanomami",
+      "meta": "Marco Zero, 1990 · 372 páginas · Etnografia",
+      "summary": "Etnografia clássica dos Sanumá baseada em 22 anos de pesquisa de campo. Aborda a organização social, sistema de parentesco e cosmologia do subgrupo Yanomami que habita as cabeceiras do rio Auaris, em Roraima.",
+      "links": [
+        {
+          "icon": "fa-book",
+          "label": "Marco Zero",
+          "url": ""
+        },
+        {
+          "icon": "fa-graduation-cap",
+          "label": "UnB Repositório",
+          "url": ""
+        },
+        {
+          "icon": "fa-file-pdf",
+          "label": "JSTOR",
+          "url": ""
+        }
+      ]
+    }
+  }
+}

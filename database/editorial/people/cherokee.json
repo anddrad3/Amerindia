@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "cherokee",
+    "lon": -83,
+    "lat": 35,
+    "name": "Cherokee",
+    "region": "EUA · OK/NC",
+    "population": "≈ 380.000",
+    "previewImage": "https://images.unsplash.com/photo-1518184781720-e0fc34d23818?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Mesmo nas cinzas da Trilha, a língua sobrevive"
+  }
+}

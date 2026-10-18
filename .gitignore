@@ -1,0 +1,9 @@
+.tools/
+storage/*
+!storage/.gitkeep
+tmp/
+config/local.php
+__pycache__/
+*.sqlite*
+.env
+node_modules/

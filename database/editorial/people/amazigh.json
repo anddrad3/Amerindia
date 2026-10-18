@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "amazigh",
+    "lon": -7,
+    "lat": 31,
+    "name": "Amazigh (Berbere)",
+    "region": "Norte da África",
+    "population": "≈ 30 milhões",
+    "previewImage": "https://images.unsplash.com/photo-1539020140153-e479b8c5c655?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Antes de árabes, antes de fenícios, já estávamos aqui"
+  }
+}

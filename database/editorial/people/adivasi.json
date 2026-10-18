@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "adivasi",
+    "lon": 80,
+    "lat": 22,
+    "name": "Adivasi",
+    "region": "Índia · cinturão tribal",
+    "population": "≈ 104 milhões",
+    "previewImage": "https://images.unsplash.com/photo-1590767187868-b2cd1b4f6d2c?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Jal-jangal-jameen — água, floresta, terra — não se vende"
+  }
+}

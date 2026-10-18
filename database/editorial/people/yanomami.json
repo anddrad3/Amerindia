@@ -1,0 +1,23 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "yanomami",
+    "lon": -63.5,
+    "lat": 2,
+    "name": "Yanomami",
+    "region": "Brasil · AM/RR",
+    "population": "≈ 31.000",
+    "previewImage": "https://images.unsplash.com/photo-1542640244-7e672d6cb466?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Onde a floresta ainda fala mais alto que tudo",
+    "sourceKey": "davi_kopenawa",
+    "complete": true,
+    "answers": {
+      "intro": "Os **Yanomami** podem ser apresentados, antes de tudo, como uma sociedade de floresta cuja territorialidade combina parentesco, roças, caça, caminhos, memória dos mortos e relações xamânicas com os *xapiri*. Em vez de descrevê-los como um “grupo isolado”, é mais preciso falar em redes de comunidades com diferentes histórias de contato e forte autonomia política.\n\nA Terra Indígena Yanomami, homologada em 1992, reúne aproximadamente **9,6 milhões de hectares** entre Roraima e Amazonas. O território não é apenas uma área física: é condição de reprodução social, linguística, alimentar e cosmológica.\n\n**Fontes-base:** Davi Kopenawa & Bruce Albert, *A Queda do Céu*; Alcida Rita Ramos, estudos Sanumá/Yanomami; ISA/Hutukara; relatórios públicos do MPF. Toque nos selos verdes do board para abrir as fontes verificadas.",
+      "history": "A história recente Yanomami precisa ser lida como uma sucessão de frentes de contato e intrusão: missões, projetos de integração nacional, abertura da Perimetral Norte nos anos 1970, garimpo, epidemias e mobilização política indígena e indigenista.\n\nNa literatura antropológica, esses eventos não aparecem como “acidentes do progresso”, mas como transformações violentas impostas a um sistema social que já tinha suas próprias formas de circulação, aliança, conflito e cuidado da floresta. A campanha pela demarcação da terra contínua, consolidada em 1992, foi resultado de articulações entre lideranças Yanomami, pesquisadores, fotógrafos, missionários e organizações de defesa territorial.\n\n**Fontes-base:** Kopenawa & Albert; Alcida Ramos; Carlo Zacquini/CCPY; Claudia Andujar; documentos do MPF sobre Haximú e garimpo.",
+      "territory": "Para os Yanomami, território não é somente “posse” ou “recurso”: é a malha de casas coletivas, roças, rios, trilhas, cemitérios, sítios de caça e lugares espiritualmente habitados. A noção jurídica de Terra Indígena tenta proteger essa continuidade, mas não a esgota.\n\nA **Terra Indígena Yanomami** foi homologada em 25 de maio de 1992 e abrange cerca de **9,6 milhões de hectares**. A pressão do garimpo ilegal reintroduz uma lógica externa de extração que rompe rios, alimentos, deslocamentos e saúde coletiva.\n\n**Fontes-base:** Constituição Federal de 1988; homologação da TI Yanomami; ISA/Hutukara; MPF; Kopenawa & Albert.",
+      "culture": "A vida social Yanomami é frequentemente descrita a partir do *shabono*, das relações de parentesco, das festas, dos ciclos de roça, da caça e da mediação xamânica. Mas esses elementos não devem ser tratados como folclore: são instituições vivas de produção de pessoa, memória e território.\n\nNa fala de Davi Kopenawa registrada por Bruce Albert, os *xapiri* não são “crenças” no sentido fraco do termo; são agentes de conhecimento, cura e equilíbrio cosmológico. Essa é uma chave importante para compreender por que a destruição da floresta é também entendida como ameaça ao céu, aos rios e aos corpos.\n\n**Fontes-base:** *A Queda do Céu*; Alcida Ramos; etnografias Sanumá/Yanomami; acervos e registros de Claudia Andujar.",
+      "current": "A situação contemporânea dos Yanomami combina reconhecimento jurídico, protagonismo político e vulnerabilidade produzida por invasões. A crise sanitária associada ao garimpo ilegal tornou visíveis a contaminação dos rios, a malária, a desnutrição e a ruptura de sistemas locais de cuidado.\n\nO ponto central, em linguagem antropológica, é que a crise não é apenas “humanitária”: é territorial, ecológica, histórica e política. A resposta pública precisa considerar saúde, retirada de invasores, proteção permanente, fortalecimento de organizações Yanomami e escuta das próprias lideranças.\n\n**Fontes-base:** Hutukara Associação Yanomami; relatórios do MPF e órgãos federais; Kopenawa & Albert; ISA. O board organiza os principais marcos e permite conferir cada fonte."
+    }
+  }
+}

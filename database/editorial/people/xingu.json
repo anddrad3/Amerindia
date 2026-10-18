@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "xingu",
+    "lon": -52.5,
+    "lat": -11.5,
+    "name": "Povos do Xingu",
+    "region": "Brasil · MT",
+    "population": "≈ 7.000",
+    "previewImage": "https://images.unsplash.com/photo-1603504849646-68b31a89c7ff?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Quatorze povos, um único território de cuidado"
+  }
+}

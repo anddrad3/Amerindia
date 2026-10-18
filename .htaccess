@@ -1,0 +1,3 @@
+# Defense in depth for an incorrectly configured Apache document root.
+# Correct deployment serves ONLY public/ (see docs/DEPLOYMENT.md).
+Require all denied

@@ -1,0 +1,32 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "name": "Claudia Andujar",
+    "photo": "CA",
+    "affiliation": "Fotógrafa · Cofundadora da CCPY",
+    "bio": "Fotógrafa suíço-brasileira nascida em 1931, sobrevivente do Holocausto. Iniciou trabalho com os Yanomami em 1971 e dedicou décadas a documentá-los — produzindo o registro fotográfico mais completo do povo. Cofundou a CCPY em 1978 e foi central na campanha que levou à demarcação de 1992.",
+    "research": {
+      "title": "Marcados",
+      "meta": "Cosac Naify, 2009 · 200 páginas · Livro de fotografias",
+      "summary": "Série fotográfica feita durante campanhas de vacinação dos Yanomami: cada Yanomami era fotografado com um número pendurado no pescoço. Andujar inverte a lógica genocida da numeração — usada nos campos de concentração — para preservar identidades, criando um arquivo de salvamento.",
+      "links": [
+        {
+          "icon": "fa-book",
+          "label": "Cosac Naify",
+          "url": ""
+        },
+        {
+          "icon": "fa-image",
+          "label": "IMS Acervo",
+          "url": ""
+        },
+        {
+          "icon": "fa-globe",
+          "label": "Tate Modern",
+          "url": ""
+        }
+      ]
+    }
+  }
+}

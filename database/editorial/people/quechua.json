@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "quechua",
+    "lon": -72,
+    "lat": -13,
+    "name": "Quechua",
+    "region": "Andes · PE/BO/EC",
+    "population": "≈ 8 milhões",
+    "previewImage": "https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Pachamama escuta os passos no caminho do Inca"
+  }
+}

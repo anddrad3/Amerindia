@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "navajo",
+    "lon": -109,
+    "lat": 36,
+    "name": "Navajo (Diné)",
+    "region": "EUA · AZ/NM/UT",
+    "population": "≈ 400.000",
+    "previewImage": "https://images.unsplash.com/photo-1541336544-bedb7af8d3a4?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Na quarta criação encontramos o Mundo Brilhante"
+  }
+}

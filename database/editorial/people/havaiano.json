@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "havaiano",
+    "lon": -157,
+    "lat": 21,
+    "name": "Kānaka Maoli",
+    "region": "Havaí · EUA",
+    "population": "≈ 690.000",
+    "previewImage": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Mauna Kea é a montanha onde nascem os ancestrais"
+  }
+}

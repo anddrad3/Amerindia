@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "sami",
+    "lon": 23,
+    "lat": 69,
+    "name": "Sámi",
+    "region": "Sápmi · NO/SE/FI/RU",
+    "population": "≈ 100.000",
+    "previewImage": "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "A rena conhece o caminho que esquecemos"
+  }
+}

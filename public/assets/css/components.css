@@ -1,0 +1,43 @@
+.site-header { height:90px; padding:0 48px; display:flex; align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); position:relative; z-index:1001; background:var(--paper); }
+.brand { display:inline-flex; align-items:center; text-decoration:none; font-weight:650; font-size:1.55rem; letter-spacing:-.065em; white-space:nowrap; }
+.brand-symbol { border:1.5px solid var(--ink); border-radius:50%; width:29px; height:29px; margin-right:10px; font-size:1.35rem; line-height:25px; text-align:center; font-weight:400; }
+.brand-dot { color:var(--accent); }
+.main-nav { display:flex; gap:34px; }
+.main-nav a { text-decoration:none; color:var(--body); font-size:.82rem; padding:12px 0; }
+.main-nav a:hover,.main-nav a[aria-current] { color:var(--ink); box-shadow:0 1px var(--ink); }
+.header-actions { display:flex; gap:21px; align-items:center; }
+.icon-button { display:grid; place-items:center; width:42px; height:42px; border:0; background:transparent; color:var(--ink); border-radius:50%; font-size:1.6rem; }
+.icon-button:hover { background:var(--sage); }
+.icon-button svg { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:1.5; }
+.button { display:inline-flex; align-items:center; justify-content:center; gap:22px; padding:15px 25px; min-height:48px; border:1px solid var(--line); border-radius:999px; background:transparent; color:var(--ink); text-decoration:none; font-size:.82rem; font-weight:550; transition:background .2s,transform .2s; }
+.button:hover { background:var(--sage); transform:translateY(-1px); }
+.button.primary { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.button.primary:hover { background:#3c5343; }
+.button.small { padding:10px 19px; min-height:42px; }
+.button-row { display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+.text-link { display:inline-flex; align-items:center; gap:15px; font-size:.82rem; font-weight:550; padding:8px 0; border:0; background:transparent; color:var(--ink); text-decoration:none; }
+.text-link:hover { text-decoration:underline; }
+.status-dot { width:6px; height:6px; background:var(--accent); border-radius:50%; display:inline-block; flex-shrink:0; }
+.site-footer { margin-top:90px; border-top:1px solid var(--line); padding:42px 0 28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.site-footer p { font-size:.8rem; margin-top:12px; }
+.site-footer nav { display:flex; gap:20px; justify-content:flex-end; flex-wrap:wrap; font-size:.75rem; align-content:start; padding-top:10px; }
+.site-footer nav a { text-decoration:none; }
+.site-footer small { grid-column:1/-1; font-size:.67rem; color:var(--muted); }
+label { display:flex; flex-direction:column; gap:8px; font-size:.79rem; font-weight:550; }
+input:not([type=checkbox]):not([type=range]):not([type=file]),select,textarea { width:100%; min-height:47px; border:1px solid var(--line); border-radius:12px; padding:12px 14px; color:var(--ink); background:var(--white); font-size:.85rem; }
+textarea { resize:vertical; }
+input::placeholder,textarea::placeholder { color:#7c837a; }
+.search-dialog { width:min(680px,calc(100% - 32px)); max-height:80vh; border:1px solid var(--line); border-radius:26px; padding:30px; box-shadow:0 30px 100px #14271f33; }
+.search-dialog::backdrop { background:#20362966; backdrop-filter:blur(5px); }
+.dialog-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.dialog-head h2 { font-size:1.7rem; margin:0; }
+.search-dialog .muted { font-size:.76rem; margin-top:14px; }
+.search-results a { display:block; text-decoration:none; padding:16px 8px; border-bottom:1px solid var(--line); }
+.search-results a:hover { background:var(--paper); }
+.search-results strong,.search-results small { display:block; }
+.search-results small { color:var(--muted); margin-top:6px; }
+.empty-state { grid-column:1/-1; border:1px dashed #c5cebe; border-radius:var(--radius); padding:40px; text-align:center; }
+.empty-state h3 { font-size:1.5rem; }
+.empty-state p { max-width:480px; margin-inline:auto; }
+@media(max-width:950px) { .main-nav { gap:18px; } .site-header { padding-inline:24px; } }
+@media(max-width:760px) { .site-header { height:auto; min-height:80px; padding:18px 20px 12px; flex-wrap:wrap; gap:8px; } .brand { font-size:1.4rem; } .main-nav { order:3; width:100%; justify-content:space-between; gap:8px; } .main-nav a { font-size:.75rem; } .header-actions { gap:6px; } .button.small { padding:8px 13px; font-size:.75rem; } .site-footer { grid-template-columns:1fr; margin-top:55px; } .site-footer nav { justify-content:flex-start; } .dialog-head h2 { font-size:1.4rem; } .search-dialog { padding:20px; } }

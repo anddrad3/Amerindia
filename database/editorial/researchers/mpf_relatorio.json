@@ -1,0 +1,32 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "name": "Ministério Público Federal",
+    "photo": "MPF",
+    "affiliation": "6ª Câmara · Populações Indígenas e Minorias",
+    "bio": "A 6ª Câmara de Coordenação e Revisão do MPF coordena ações relacionadas a povos indígenas. Produziu o relatório técnico que fundamentou a Operação Yanomami de 2023, primeiro caso julgado como genocídio no Brasil (Massacre de Haximú, 2006) e diversas ações contra o garimpo ilegal.",
+    "research": {
+      "title": "Relatório Técnico Yanomami: Crise Sanitária e Garimpo Ilegal",
+      "meta": "MPF · Ministério da Justiça, 2023 · 196 páginas · Documento oficial",
+      "summary": "Relatório técnico-jurídico que embasou a declaração de emergência em saúde pública na Terra Indígena Yanomami e a operação federal de retirada de mais de 20.000 garimpeiros. Documenta contaminação por mercúrio, surtos de malária resistente e desnutrição infantil em escala genocida.",
+      "links": [
+        {
+          "icon": "fa-file-pdf",
+          "label": "PDF MPF",
+          "url": ""
+        },
+        {
+          "icon": "fa-globe",
+          "label": "Ministério da Justiça",
+          "url": ""
+        },
+        {
+          "icon": "fa-newspaper",
+          "label": "G1 Cobertura",
+          "url": ""
+        }
+      ]
+    }
+  }
+}

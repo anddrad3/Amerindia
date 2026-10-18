@@ -1,0 +1,32 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "name": "Carlo Zacquini",
+    "photo": "CZ",
+    "affiliation": "Missionários Consolata · Cofundador da CCPY",
+    "bio": "Missionário italiano da Consolata, no Brasil desde 1965. Conviveu com os Yanomami por mais de 50 anos. Cofundou em 1978 a Comissão pela Criação do Parque Yanomami (CCPY) com Claudia Andujar e Bruce Albert — articulação que levou à demarcação histórica de 1992.",
+    "research": {
+      "title": "Yanomami: A Todos os Povos da Terra",
+      "meta": "Hutukara/ISA, 2012 · 320 páginas · Crônica histórica",
+      "summary": "Memória pessoal e crônica histórica da campanha de demarcação dos territórios Yanomami. Reúne documentos, cartas, denúncias e fotografias acumuladas ao longo de quatro décadas de militância indigenista.",
+      "links": [
+        {
+          "icon": "fa-book",
+          "label": "ISA Loja",
+          "url": ""
+        },
+        {
+          "icon": "fa-globe",
+          "label": "Consolata Brasil",
+          "url": ""
+        },
+        {
+          "icon": "fa-newspaper",
+          "label": "Folha de S.Paulo",
+          "url": ""
+        }
+      ]
+    }
+  }
+}

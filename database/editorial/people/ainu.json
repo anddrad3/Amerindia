@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "ainu",
+    "lon": 142,
+    "lat": 43,
+    "name": "Ainu",
+    "region": "Japão · Hokkaido",
+    "population": "≈ 25.000",
+    "previewImage": "https://images.unsplash.com/photo-1545569310-0bea1ed25690?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Os deuses se escondem nos olhos do urso"
+  }
+}

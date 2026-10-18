@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "maasai",
+    "lon": 36,
+    "lat": -3,
+    "name": "Maasai",
+    "region": "Quênia · Tanzânia",
+    "population": "≈ 1,5 milhão",
+    "previewImage": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "O gado é o sangue que alimenta o sangue"
+  }
+}

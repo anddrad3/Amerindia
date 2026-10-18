@@ -1,0 +1,14 @@
+{
+  "status": "requires-editorial-review",
+  "source": "Legacy project before PHP migration",
+  "content": {
+    "id": "maori",
+    "lon": 174,
+    "lat": -41,
+    "name": "Māori",
+    "region": "Aotearoa · Nova Zelândia",
+    "population": "≈ 850.000",
+    "previewImage": "https://images.unsplash.com/photo-1604357209793-fca5dca89f97?q=80&w=600&auto=format&fit=crop",
+    "previewQuote": "Eu sou o rio, e o rio sou eu"
+  }
+}
