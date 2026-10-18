@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#08080a">
+<title>Ameríndia</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<div class="app" id="app">
+  <main class="map-pane">
+    <div id="map"></div>
+    <div class="brand-mark">
+      <span class="glyph"></span>
+      <span class="label">Ameríndia</span>
+      <button class="site-menu-toggle" id="site-menu-toggle" type="button" aria-label="Abrir menu" aria-controls="site-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="site-menu" id="site-menu" aria-hidden="true">
+      <div class="site-menu-view site-menu-home is-active" data-site-menu-view="home">
+        <ul class="site-menu-list" aria-label="Menu principal">
+          <li><button type="button" class="site-menu-item" data-site-menu-action="povos" data-text="Povos">Povos</button></li>
+          <li><button type="button" class="site-menu-item" data-site-menu-action="sobre" data-text="Sobre o Site">Sobre o Site</button></li>
+        </ul>
+      </div>
+
+      <section class="site-menu-view site-menu-content" data-site-menu-view="povos" aria-label="Povos">
+        <div class="site-menu-content-inner">
+          <button type="button" class="site-menu-back" data-site-menu-action="home"><i class="fa-solid fa-arrow-left"></i><span>Menu</span></button>
+          <header class="site-menu-section-head">
+            <p>Povos</p>
+            <h2>Escolha um povo para ler o artigo.</h2>
+          </header>
+          <form class="people-search" id="people-search" role="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="people-search-input" type="search" placeholder="Buscar povos..." autocomplete="off">
+            <button type="button" class="people-search-clear" id="people-search-clear" aria-label="Limpar busca"><i class="fa-solid fa-xmark"></i></button>
+          </form>
+          <p class="people-search-empty" id="people-search-empty" hidden>Nenhum povo encontrado.</p>
+          <div class="people-list" aria-label="Lista de povos">
+            <button type="button" class="people-row is-available" data-site-menu-action="yanomami">
+              <span><strong>Yanomami</strong><small>Brasil · AM/RR</small></span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button type="button" class="people-row" disabled><span><strong>Maya</strong><small>México · Guatemala</small></span><em>Em breve</em></button>
+            <button type="button" class="people-row" disabled><span><strong>Quechua</strong><small>Andes · PE/BO/EC</small></span><em>Em breve</em></button>
+            <button type="button" class="people-row" disabled><span><strong>Mapuche</strong><small>Chile · Argentina</small></span><em>Em breve</em></button>
+            <button type="button" class="people-row" disabled><span><strong>Povos do Xingu</strong><small>Brasil · MT</small></span><em>Em breve</em></button>
+            <button type="button" class="people-row" disabled><span><strong>Pataxó</strong><small>Brasil · BA</small></span><em>Em breve</em></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-menu-view site-menu-content" data-site-menu-view="yanomami" aria-label="Artigo sobre os Yanomami">
+        <article class="menu-article">
+          <button type="button" class="site-menu-back" data-site-menu-action="povos"><i class="fa-solid fa-arrow-left"></i><span>Povos</span></button>
+          <header class="menu-article-head">
+            <p>Povo originário · Amazônia</p>
+            <h1>Yanomami</h1>
+            <span>Sociedade indígena da floresta amazônica, presente principalmente no norte do Brasil e sul da Venezuela.</span>
+          </header>
+          <section class="menu-research-timeline" data-menu-research-timeline="yanomami" aria-label="Pesquisas publicadas sobre os Yanomami">
+            <div class="menu-research-timeline-head">
+              <div>
+                <p>Pesquisas publicadas</p>
+                <h2>Filtre por ano para ver estudos sobre povos indígenas.</h2>
+              </div>
+              <button type="button" class="timeline-edit-btn menu-timeline-edit-btn" data-menu-timeline-edit aria-label="Editar ano"><i class="fa-solid fa-pen"></i></button>
+            </div>
+            <number-snapper class="menu-timeline-snapper" label="Ano de publicação" min="1960" max="2026" step="1" value="2026" snap="none" interval="5" ticks="66">
+              <small slot="info"></small>
+            </number-snapper>
+            <form class="timeline-year-editor menu-timeline-editor" data-menu-timeline-form>
+              <input type="number" min="1960" max="2026" step="1" data-menu-timeline-input aria-label="Ano da pesquisa">
+              <button type="submit" aria-label="Filtrar ano"><i class="fa-solid fa-check"></i></button>
+            </form>
+            <div class="menu-research-results" data-menu-research-results></div>
+          </section>
+          <div class="menu-article-grid">
+            <aside class="menu-article-facts" aria-label="Resumo">
+              <dl>
+                <div><dt>Região</dt><dd>Roraima, Amazonas e sul da Venezuela</dd></div>
+                <div><dt>População</dt><dd>Cerca de 31 mil pessoas no Brasil</dd></div>
+                <div><dt>Território</dt><dd>Terra Indígena Yanomami, homologada em 1992</dd></div>
+              </dl>
+            </aside>
+            <div class="menu-article-body">
+              <p>Os Yanomami formam uma rede de comunidades amazônicas com línguas, histórias locais e formas próprias de organização social. A vida coletiva articula parentesco, roças, caça, rios, caminhos, festas, memória dos mortos e relações xamânicas com a floresta.</p>
+              <h2>Território</h2>
+              <p>A Terra Indígena Yanomami, no Brasil, abrange aproximadamente 9,6 milhões de hectares entre Roraima e Amazonas. O território não é apenas uma área física: é a base da alimentação, da saúde, da transmissão de conhecimento e da continuidade cultural.</p>
+              <h2>Cosmologia e vida social</h2>
+              <p>Na tradição Yanomami, a floresta é habitada por seres, espíritos e relações que não se separam da vida cotidiana. O xamanismo ocupa um papel central na cura, na proteção coletiva e na interpretação dos desequilíbrios provocados pela destruição ambiental.</p>
+              <h2>História recente</h2>
+              <p>Desde a segunda metade do século XX, missões, obras de integração, epidemias e garimpo ilegal alteraram profundamente a vida Yanomami. A demarcação contínua do território, concluída em 1992, foi um marco político, mas a pressão sobre rios, comunidades e sistemas de saúde permanece uma questão central.</p>
+              <h2>Leituras de referência</h2>
+              <p>Entre as obras importantes para estudar os Yanomami estão <strong>A Queda do Céu</strong>, de Davi Kopenawa e Bruce Albert, pesquisas de Alcida Rita Ramos e registros de Claudia Andujar. Essas fontes ajudam a compreender o povo Yanomami para além de estereótipos, como sujeitos políticos, históricos e produtores de conhecimento.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="site-menu-view site-menu-content" data-site-menu-view="sobre" aria-label="Sobre o site">
+        <article class="menu-article menu-article-narrow">
+          <button type="button" class="site-menu-back" data-site-menu-action="home"><i class="fa-solid fa-arrow-left"></i><span>Menu</span></button>
+          <header class="menu-article-head">
+            <p>Projeto de pesquisa · Unesp Franca</p>
+            <h1>Ameríndia</h1>
+            <span>Plataforma digital colaborativa para aproximar jovens da pesquisa histórica, das fontes primárias e das humanidades no espaço digital.</span>
+          </header>
+          <div class="menu-article-body">
+            <p>Ameríndia é um protótipo universitário desenvolvido por Matheus da Silva Andrade, Beatriz Barbosa de Oliveira e sob orientação da professora doutora Fernanda Sposito, no contexto do Laboratório de Ensino de História “Prof. Anísio Teixeira”.</p>
+            <p>A proposta nasce do mesmo problema que orienta o projeto de pesquisa apresentado ao laboratório: muitos acervos, documentos e narrativas históricas permanecem dispersos, pouco acessíveis e distantes dos estudantes da educação básica, justamente em uma geração que aprende, pesquisa e se comunica por interfaces digitais.</p>
+            <h2>Propósito</h2>
+            <p>O objetivo é construir uma experiência digital que funcione como ponte entre universidade, escola, pesquisa histórica e público geral. Em vez de tratar a tecnologia como simples entretenimento, Ameríndia parte da História Pública, da Cultura Digital e da Didática da História para defender que o pesquisador em humanidades também deve ocupar o espaço online com rigor, curadoria e responsabilidade social.</p>
+            <h2>Arquivo vivo</h2>
+            <p>O conceito de “arquivo vivo” orienta a plataforma: reunir documentos, linhas do tempo, textos de referência e materiais verificáveis em uma navegação aberta, visual e colaborativa. A ideia é que fontes primárias e conteúdos de pesquisa deixem de ser objetos distantes e passem a compor uma experiência concreta de investigação histórica.</p>
+            <h2>Recorte deste protótipo</h2>
+            <p>Nesta versão, Ameríndia aplica essa metodologia ao estudo de povos originários da América Latina. O mapa, os artigos e os materiais de apoio foram pensados como uma porta de entrada para aprendizagem, discussão em sala e aprofundamento crítico, sem substituir a bibliografia acadêmica, os documentos oficiais ou a palavra das próprias comunidades.</p>
+            <h2>Compromisso</h2>
+            <p>O projeto defende que democratizar o acesso ao conhecimento histórico é também uma forma de cidadania cultural. Ao aproximar jovens de fontes, territórios, memórias e interpretações qualificadas, Ameríndia busca mostrar que as humanidades têm lugar legítimo e necessário no ecossistema digital contemporâneo.</p>
+          </div>
+        </article>
+      </section>
+    </nav>
+    <div class="top-timeline">
+      <div class="timeline-wrap">
+        <number-snapper id="timeline" label="LINHA DO TEMPO" min="1500" max="2026" step="1" value="2026" snap="none" ticks="105">
+          <small slot="info" class="timeline-info"></small>
+        </number-snapper>
+        <div class="timeline-meta">
+          <button class="year-edit-btn" id="year-edit-btn" aria-label="Editar ano"><i class="fa-solid fa-pen"></i></button>
+        </div>
+        <div class="year-inline-edit" id="year-inline-edit">
+          <input type="number" id="year-input" min="1500" max="2026" step="1" />
+          <button class="confirm" id="year-confirm" aria-label="Confirmar"><i class="fa-solid fa-check"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="map-tooltip" class="map-tooltip" aria-hidden="true">
+      <div class="tooltip-image"><img id="tip-img" alt="" /></div>
+      <div class="tooltip-body">
+        <div class="tooltip-title-row">
+          <h4 class="tooltip-title" id="tip-name"></h4>
+          <span class="tooltip-meta" id="tip-meta"><span class="dot"></span><span id="tip-meta-text"></span></span>
+        </div>
+        <p class="tooltip-quote" id="tip-quote"></p>
+        <div class="tooltip-action" id="tip-action"><i class="fa-solid fa-magnifying-glass"></i><span id="tip-action-text">Encontrar</span></div>
+      </div>
+    </div>
+
+    <form class="floating-search" id="floating-search">
+      <div class="floating-search-status" id="floating-search-status" hidden></div>
+      <div class="input-shell">
+        <div class="context-chip" id="context-chip" role="button" tabindex="0" aria-label="Reabrir chat do contexto atual">
+          <span class="dot"></span>
+          <span id="context-chip-name"></span>
+          <button type="button" id="context-clear" aria-label="Limpar contexto"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <input id="search-input" type="text" placeholder="Encontrar povos, territórios, fenômenos…" autocomplete="off">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <button class="send-btn" type="submit" aria-label="Encontrar"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </form>
+
+    <div class="toast" id="toast"><i class="fa-solid fa-clock"></i><span id="toast-msg"></span></div>
+
+    <section class="source-panel" id="source-panel" aria-hidden="true">
+      <header class="source-panel-head">
+        <div class="source-head-left"><span class="badge"><i class="fa-solid fa-check"></i></span><span>Fonte verificada</span></div>
+        <div class="source-window-actions">
+          <button class="source-pip-fullscreen" id="source-pip-fullscreen" type="button" aria-label="Expandir PDF"><i class="fa-solid fa-expand"></i></button>
+          <button class="source-close" id="source-close" aria-label="Fechar fonte"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </header>
+      <div class="source-panel-body" id="source-panel-body"></div>
+    </section>
+  </main>
+  <div class="pane-divider" id="pane-divider" role="separator" aria-orientation="vertical" aria-label="Redimensionar mapa e board" tabindex="0">
+    <span class="pane-divider-handle" aria-hidden="true"><span></span></span>
+  </div>
+
+  <aside class="chat-pane" id="chat-pane">
+    <nav class="chat-sidebar">
+      <div class="sidebar-header">
+        <h3>Boards recentes</h3>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul class="sidebar-list" id="sidebar-list"></ul>
+      <div class="sidebar-footer">
+        <button class="new-chat-btn-full" id="new-chat-btn"><i class="fa-solid fa-plus"></i> Nova board</button>
+      </div>
+    </nav>
+    <section class="chat-main">
+      <div class="board-surface" id="board-surface" aria-hidden="true"></div>
+      <header class="chat-header">
+        <div class="chat-header-left">
+          <button class="icon-btn" id="sidebar-toggle" aria-label="Histórico"><i class="fa-solid fa-bars"></i></button>
+          <div class="chat-avatar"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div class="chat-header-text">
+            <h2 id="chat-title">Board de pesquisa</h2>
+            <small id="chat-subtitle">Mapa e board dos povos originários</small>
+          </div>
+        </div>
+        <div class="chat-actions">
+          <button id="chat-close" class="icon-btn" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </header>
+
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="suggestions" id="suggestions" hidden></div>
+
+      <form class="chat-input" id="chat-input-form">
+        <div class="board-search-status" id="board-search-status" hidden></div>
+        <div class="input-shell">
+          <input id="chat-input-field" type="text" placeholder="Encontrar mais sobre…" autocomplete="off">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <button class="send-btn" type="submit" aria-label="Encontrar"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </form>
+    </section>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+<script src="assets/js/components/number-snapper.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
