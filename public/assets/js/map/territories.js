@@ -26,17 +26,22 @@ export async function initTerritories() {
   tiles.on('tileload',()=>{successes++;if(successes>3 && failures===0){status.hidden=true;retry.hidden=true;}});
   tiles.on('tileerror',()=>{if(++failures>=3){status.hidden=false;status.textContent='O mapa de fundo está indisponível. Os limites cadastrados continuam acessíveis. Tente recarregar.';retry.hidden=false;}});
   retry.addEventListener('click',()=>{failures=successes=0;status.textContent='Recarregando mapa de fundo…';tiles.redraw();});
-  let catalog,features=[],selected='',hover='',hoverPeople=[],pins,layer,controller,requestNumber=0,locationMarker;
+  let catalog,features=[],selected='',hover='',hoverPeople=[],pins,layer,controller,requestNumber=0,locationMarker,focusSelection=false;
   const cache=new Map(),buttons=new Map(),layers=new Map();
   const style=id=>({color:'#ff6a1a',weight:id===selected || id===hover || hoverPeople.includes(id)?3:1.5,fillColor:'#ff6a1a',fillOpacity:id===selected || id===hover || hoverPeople.includes(id)?.4:.18});
   function restyle(){layers.forEach((item,id)=>item.setStyle(style(id)));buttons.forEach((button,id)=>button.classList.toggle('is-selected',id===selected));pins?.highlight(hover||selected);}
+  function fitSelected(){
+    const polygon=layers.get(selected);
+    if(focusSelection && polygon)map.fitBounds(polygon.getBounds(),{paddingTopLeft:[30,150],paddingBottomRight:[30,160],maxZoom:9,animate:false});
+  }
+  map.on('resize',()=>{if(focusSelection)requestAnimationFrame(fitSelected);});
+  document.querySelector('#reset-brazil').addEventListener('click',()=>{focusSelection=false;});
   function select(id,zoom=true){
     selected=id;const territory=catalog.territories.find(t=>t.id===id);if(!territory)return;
-    if(zoom)geography.focus();
+    if(zoom){focusSelection=true;geography.focus();}
     board.show(territory,catalog.research,+range.value,features.find(feature=>feature.properties.id===id)?.geometry,{reveal:zoom});restyle();
     if(zoom){setPeople(false);requestAnimationFrame(()=>{
-      map.invalidateSize();const polygon=layers.get(id);
-      if(polygon)map.fitBounds(polygon.getBounds(),{paddingTopLeft:[30,150],paddingBottomRight:[30,160],maxZoom:9,animate:false});
+      map.invalidateSize({pan:false});fitSelected();
     });}
   }
   function renderList(query=''){
