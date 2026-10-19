@@ -1,4 +1,6 @@
 import {initSearch} from './features/search.js';
+import {initNavigation} from './features/navigation.js';
+initNavigation();
 initSearch();
 const page=document.body.dataset.page;
 const modules={

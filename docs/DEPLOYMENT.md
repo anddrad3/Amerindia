@@ -1,5 +1,15 @@
 # Implantação e manutenção
 
+## Hospedagem alwaysdata
+
+Endereço do projeto: `https://amerindia.alwaysdata.net`. Site PHP, versão principal 8.4 (atualizações de correção automáticas), document root `apps/amerindia/current/public/`, HTTPS obrigatório. Banco, anexos e sessões ficam em `/home/amerindia/apps/amerindia/storage`, fora da raiz pública. A configuração privada fica em `shared/config.php`; cada release usa um link para ela.
+
+Publicar somente releases de commits verificados, sem `.git`, `.tools`, dados locais, chaves SSH ou arquivos de teste. Criar diretório `releases/<commit>`, extrair o pacote, vincular `config/local.php`, executar `php bin/console.php doctor` e atualizar o link `current` para esse release. Antes de atualizações com migração, faça backup consistente do SQLite e anexos; não substitua o banco de produção pelo banco local. Releases anteriores ficam disponíveis para recuperação do código.
+
+Plano Free consultado em 19/10/2026: 1 GB, uso sem fins lucrativos e subdomínio `alwaysdata.net`. Consulte as [condições atualizadas](https://help.alwaysdata.com/en/docs/admin-billing/billing/public-cloud-prices/) antes de mudar a finalidade do projeto. O limite interno de anexos é de 500 MB; banco, releases e logs também consomem armazenamento. O site não depende do computador local ligado.
+
+Responsável, contato e revisão do termo continuam configuráveis. Enquanto não preenchidos, a consulta pública funciona e os formulários indicam indisponibilidade de recebimento, sem coletar arquivos ou dados pessoais.
+
 ## Requisitos
 
 - PHP 8.4 atualizado, extensões PDO SQLite, fileinfo e mbstring.

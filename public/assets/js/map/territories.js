@@ -1,36 +1,43 @@
 import {getCatalog,request} from '../core/api.js';
-import {el,externalLink,matches} from '../core/dom.js';
+import {el,matches} from '../core/dom.js';
+import {createBoard} from '../board/controller.js';
+import {constrainToBrazil} from './brazil.js';
+import {createPeoplePins} from './people.js';
 import {nearestTerritory} from './geometry.js';
 import {getDevicePosition,locationFailureMessage} from './location.js';
 export async function initTerritories() {
   const list=document.querySelector('#territory-list'),status=document.querySelector('#map-status');
-  const detail=document.querySelector('#territory-detail'),range=document.querySelector('#map-year');
+  const range=document.querySelector('#map-year');
   const note=document.querySelector('#timeline-note'),output=document.querySelector('#year-output');
   const locate=document.querySelector('#locate-me'),locationStatus=document.querySelector('#location-status');
   const retry=document.querySelector('#retry-map');
   if (!window.L) { status.hidden=false;status.textContent='Não foi possível carregar a biblioteca do mapa. Recarregue a página.';return; }
-  const map=L.map('map',{zoomControl:false,scrollWheelZoom:true}).setView([-13,-54],4);
-  L.control.zoom({position:'topright'}).addTo(map);
-  const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',crossOrigin:true}).addTo(map);
+  const map=L.map('map',{zoomControl:false,scrollWheelZoom:true,zoomSnap:.1,zoomDelta:.5}).setView([-14,-54],4);
+  const geography=constrainToBrazil(map,L);
+  L.control.zoom({position:'bottomleft',zoomInTitle:'Aproximar mapa',zoomOutTitle:'Afastar mapa'}).addTo(map);
+  const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,noWrap:true,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',crossOrigin:true}).addTo(map);
+  const board=createBoard();
+  const peoplePanel=document.querySelector('#people-panel'),peopleToggle=document.querySelector('#toggle-people');
+  function setPeople(open){peoplePanel.hidden=!open;peopleToggle.setAttribute('aria-expanded',String(open));}
+  peopleToggle.addEventListener('click',()=>setPeople(peoplePanel.hidden));
+  document.querySelector('#close-people').addEventListener('click',()=>{setPeople(false);peopleToggle.focus();});
+  document.querySelector('#territory-search-form').addEventListener('submit',event=>{event.preventDefault();setPeople(true);});
   let failures=0,successes=0;
   tiles.on('tileload',()=>{successes++;if(successes>3 && failures===0){status.hidden=true;retry.hidden=true;}});
   tiles.on('tileerror',()=>{if(++failures>=3){status.hidden=false;status.textContent='O mapa de fundo está indisponível. Os limites cadastrados continuam acessíveis. Tente recarregar.';retry.hidden=false;}});
   retry.addEventListener('click',()=>{failures=successes=0;status.textContent='Recarregando mapa de fundo…';tiles.redraw();});
-  let catalog,features=[],selected='',hover='',layer,controller,requestNumber=0,locationMarker;
+  let catalog,features=[],selected='',hover='',hoverPeople=[],pins,layer,controller,requestNumber=0,locationMarker;
   const cache=new Map(),buttons=new Map(),layers=new Map();
-  const style=id=>({color:id===selected || id===hover?'#b34d2d':'#456c50',weight:id===selected || id===hover?3:1.5,fillColor:id===selected || id===hover?'#cb6c45':'#67885e',fillOpacity:id===selected || id===hover?.35:.2});
-  function restyle(){layers.forEach((item,id)=>item.setStyle(style(id)));buttons.forEach((button,id)=>button.classList.toggle('is-selected',id===selected));}
-  function showDetail(territory){
-    detail.replaceChildren();detail.hidden=false;
-    const close=el('button','detail-close','×');close.type='button';close.setAttribute('aria-label','Fechar detalhes');close.addEventListener('click',()=>{detail.hidden=true;selected='';restyle();});
-    const snapshot=territory.snapshots.find(s=>s.valid_from<=+range.value && s.valid_to>=+range.value);
-    detail.append(close,el('span','detail-tag',territory.official_status),el('h2','',territory.name),el('p','',territory.people),el('p','',territory.description),el('p','microcopy',snapshot?`Atualização informada pela fonte: ${snapshot.source_date || 'não informada'} · consulta: ${snapshot.retrieved_at}.`:`Sem limite documentado neste acervo para ${range.value}. Isso não significa ausência de ocupação indígena.`),externalLink(snapshot?.source_url || territory.source_url,'Consultar fonte cartográfica ↗'));
-    const research=el('a','text-link','Ver pesquisas relacionadas →');research.href=`/acervo?q=${encodeURIComponent(territory.name==='Parque do Xingu'?'Xingu':territory.name.split(' ')[0])}`;detail.append(research);
-  }
+  const style=id=>({color:'#ff6a1a',weight:id===selected || id===hover || hoverPeople.includes(id)?3:1.5,fillColor:'#ff6a1a',fillOpacity:id===selected || id===hover || hoverPeople.includes(id)?.4:.18});
+  function restyle(){layers.forEach((item,id)=>item.setStyle(style(id)));buttons.forEach((button,id)=>button.classList.toggle('is-selected',id===selected));pins?.highlight(hover||selected);}
   function select(id,zoom=true){
     selected=id;const territory=catalog.territories.find(t=>t.id===id);if(!territory)return;
-    showDetail(territory);restyle();
-    const polygon=layers.get(id);if(polygon && zoom)map.fitBounds(polygon.getBounds(),{paddingTopLeft:[40,90],paddingBottomRight:[50,235],maxZoom:10,animate:!matchMedia('(prefers-reduced-motion: reduce)').matches});
+    if(zoom)geography.focus();
+    board.show(territory,catalog.research,+range.value,features.find(feature=>feature.properties.id===id)?.geometry,{reveal:zoom});restyle();
+    if(zoom){setPeople(false);requestAnimationFrame(()=>{
+      map.invalidateSize();const polygon=layers.get(id);
+      if(polygon)map.fitBounds(polygon.getBounds(),{paddingTopLeft:[30,150],paddingBottomRight:[30,160],maxZoom:9,animate:false});
+    });}
   }
   function renderList(query=''){
     list.replaceChildren();buttons.clear();
@@ -48,8 +55,9 @@ export async function initTerritories() {
   }
   async function setYear(year){
     const current=++requestNumber;controller?.abort();controller=new AbortController();
-    output.textContent=year;note.textContent='Carregando o recorte…';
+    output.textContent=year;document.querySelector('#timeline-summary-year').textContent=year;note.textContent='Carregando o recorte…';
     if(layer)map.removeLayer(layer);layer=null;layers.clear();features=[];
+    if(selected && catalog)board.show(catalog.territories.find(t=>t.id===selected),catalog.research,year,undefined,{reveal:false});
     try{
       const collection=cache.get(year) || await request(`/api/territories?year=${year}`,{signal:controller.signal});
       if(current!==requestNumber)return;
@@ -63,8 +71,12 @@ export async function initTerritories() {
       if(selected)select(selected,false);
     }catch(error){if(error.name!=='AbortError')note.textContent=error.message;}
   }
-  try{catalog=await getCatalog();renderList();await setYear(+range.value);}catch(error){list.replaceChildren(el('p','',error.message));return;}
-  document.querySelector('#territory-search').addEventListener('input',event=>renderList(event.target.value));
+  try{
+    catalog=await getCatalog();renderList();await setYear(+range.value);
+    const current=cache.get(2026) || await request('/api/territories?year=2026');
+    pins=createPeoplePins(map,L,catalog.territories,current.features,select,ids=>{hoverPeople=ids;restyle();});
+  }catch(error){list.replaceChildren(el('p','',error.message));return;}
+  document.querySelector('#territory-search').addEventListener('input',event=>{renderList(event.target.value);setPeople(true);});
   let debounce;
   range.addEventListener('input',()=>{output.textContent=range.value;note.textContent='Atualizando o recorte…';clearTimeout(debounce);debounce=setTimeout(()=>setYear(+range.value),150);});
   document.querySelector('#reset-year').addEventListener('click',()=>{range.value=2026;clearTimeout(debounce);setYear(2026);});
@@ -85,7 +97,8 @@ export async function initTerritories() {
         select(nearest.feature.properties.id);
         const distance=nearest.distance<.1?'Você está dentro ou junto ao limite cadastrado':`Distância aproximada até o limite: ${nearest.distance.toLocaleString('pt-BR',{maximumFractionDigits:1})} km`;
         locationStatus.textContent=`${nearest.feature.properties.name}: ${distance}. Comparação somente entre as ${features.length} terras cadastradas; precisão informada pelo dispositivo: ${Math.round(position.coords.accuracy)} m. Não é rota de acesso ou autorização de entrada.`;
+        document.querySelector('#board-description').textContent=locationStatus.textContent;
+        setPeople(true);
       }catch(error){locationStatus.textContent=locationFailureMessage(error);}finally{locate.disabled=range.disabled=resetYear.disabled=false;}
   });
-  new ResizeObserver(()=>map.invalidateSize()).observe(document.querySelector('.map-stage'));
 }

@@ -16,6 +16,15 @@ final class Database {
                 $this->seed();
                 $this->pdo->exec('INSERT INTO schema_versions VALUES(1)');
             }
+            if (!$this->pdo->query('SELECT version FROM schema_versions WHERE version=2')->fetchColumn()) {
+                $details = json_decode(file_get_contents(ROOT . '/database/seed/research-details.json'), true, 512, JSON_THROW_ON_ERROR);
+                $q = $this->pdo->prepare('INSERT OR IGNORE INTO research_details SELECT ?,?,?,?,? WHERE EXISTS(SELECT 1 FROM research WHERE id=?)');
+                foreach ($details as $id=>$row) {
+                    $q->execute([$id,json_encode($row['authors'], JSON_THROW_ON_ERROR),$row['download_url']??'',$row['download_label']??'',$row['rights_note']??'',$id]);
+                }
+                $this->pdo->prepare('UPDATE research SET url=? WHERE id=? AND url=?')->execute(['https://n.companhiadasletras.com.br/livro/9788535926200/a-queda-do-ceu','queda-do-ceu','https://www.companhiadasletras.com.br/9788535926200-a-queda-do-ceu-3640/p']);
+                $this->pdo->exec('INSERT INTO schema_versions VALUES(2)');
+            }
             $this->pdo->exec('COMMIT');
         } catch (\Throwable $error) {
             $this->pdo->exec('ROLLBACK');

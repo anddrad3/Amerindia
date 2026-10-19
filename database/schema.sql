@@ -11,6 +11,11 @@ CREATE TABLE IF NOT EXISTS territories (
  id TEXT PRIMARY KEY, name TEXT NOT NULL, people TEXT NOT NULL, region TEXT NOT NULL,
  description TEXT NOT NULL, source_url TEXT NOT NULL, official_status TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS research_details (
+ research_id TEXT PRIMARY KEY REFERENCES research(id) ON DELETE CASCADE,
+ authors_json TEXT NOT NULL DEFAULT '[]', download_url TEXT NOT NULL DEFAULT '',
+ download_label TEXT NOT NULL DEFAULT '', rights_note TEXT NOT NULL DEFAULT ''
+);
 CREATE TABLE IF NOT EXISTS territory_snapshots (
  id TEXT PRIMARY KEY, territory_id TEXT NOT NULL REFERENCES territories(id),
  valid_from INTEGER NOT NULL, valid_to INTEGER NOT NULL,

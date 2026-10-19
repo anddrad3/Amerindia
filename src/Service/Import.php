@@ -47,6 +47,22 @@ final class Import {
         if(!in_array($item['voice'],['indigena','nao-indigena','coautoria','institucional'],true))throw new \InvalidArgumentException('Categoria inválida.');
         $year=$item['year']??null;if($year!==null && (!is_int($year)||$year<1500||$year>2100))throw new \InvalidArgumentException('Ano inválido.');
         $values[]=$year;$values[]=$this->text($item,'summary',3000);$url=$this->text($item,'url');$this->url($url);$values[]=$url;
+        $authors=$item['authors']??[];
+        if(!is_array($authors) || !array_is_list($authors) || count($authors)>20)throw new \InvalidArgumentException('Lista de autores inválida.');
+        $profiles=[];
+        foreach($authors as $author){
+            if(!is_array($author))throw new \InvalidArgumentException('Autor inválido.');
+            $profile=['name'=>$this->text($author,'name',180),'bio'=>$this->text($author,'bio',2000),'url'=>$this->text($author,'url')];
+            $this->url($profile['url']);$profiles[]=$profile;
+        }
+        $download=$item['download_url']??'';
+        if(!is_string($download) || strlen($download)>2000)throw new \InvalidArgumentException('Endereço de download inválido.');
+        $downloadLabel='';$rights=$item['rights_note']??'';
+        if(!is_string($rights) || mb_strlen($rights)>2000)throw new \InvalidArgumentException('Condições de uso inválidas.');
+        if($download!==''){
+            $this->url($download);$downloadLabel=$this->text($item,'download_label',180);$rights=$this->text($item,'rights_note',2000);
+            if(($item['download_authorized']??false)!==true)throw new \InvalidArgumentException('Confirme download_authorized após verificar a autorização de disponibilização.');
+        }
         $this->db->pdo->beginTransaction();
         try {
             if($submissionId){
@@ -55,6 +71,7 @@ final class Import {
                 if($submission['voice']!==$item['voice'] || !$submission['voice_consent'])throw new \InvalidArgumentException('Categoria pública não autorizada na submissão. Solicite autorização antes de classificar.');
             }
             $this->db->pdo->prepare('INSERT INTO research(id,title,author,voice,people,region,period,topic,year,summary,url) VALUES(?,?,?,?,?,?,?,?,?,?,?)')->execute($values);
+            $this->db->pdo->prepare('INSERT INTO research_details VALUES(?,?,?,?,?)')->execute([$item['id'],json_encode($profiles,JSON_THROW_ON_ERROR),$download,$downloadLabel,$rights]);
             if($submissionId)$this->db->pdo->prepare("UPDATE submissions SET status='published',reviewed_at=? WHERE id=?")->execute([date(DATE_ATOM),$submissionId]);
             $this->db->pdo->commit();
         }catch(\Throwable $e){$this->db->pdo->rollBack();throw $e;}

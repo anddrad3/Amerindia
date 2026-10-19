@@ -1,0 +1,23 @@
+{
+  "queda-do-ceu": {
+    "authors": [
+      {"name":"Davi Kopenawa","bio":"Xamã e narrador Yanomami. Suas palavras constituem a narrativa de A queda do céu, escrita em colaboração com Bruce Albert.","url":"https://n.companhiadasletras.com.br/livro/9788535926200/a-queda-do-ceu"},
+      {"name":"Bruce Albert","bio":"Etnólogo e coautor de A queda do céu, obra construída a partir de uma longa colaboração com Davi Kopenawa.","url":"https://n.companhiadasletras.com.br/livro/9788535926200/a-queda-do-ceu"}
+    ],
+    "rights_note":"Referência bibliográfica. O Ameríndia não disponibiliza cópia integral deste livro. Consulte a editora ou uma biblioteca."
+  },
+  "anmiga": {
+    "authors":[{"name":"ANMIGA","bio":"Articulação Nacional das Mulheres Indígenas Guerreiras da Ancestralidade. Rede de mulheres indígenas de diferentes povos e biomas, em defesa de seus corpos-territórios, da vida e da memória.","url":"https://anmiga.org/"}],
+    "rights_note":"Portal de uma organização indígena. Os materiais e suas condições de uso devem ser consultados na fonte."
+  },
+  "cnv": {
+    "authors":[{"name":"Comissão Nacional da Verdade","bio":"Autoria institucional do Relatório de 2014. O volume II reúne textos temáticos; a identificação dos responsáveis e colaboradores está no início de cada contribuição.","url":"https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/volume_2_digital.pdf"}],
+    "download_url":"https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/volume_2_digital.pdf/@@display-file/file",
+    "download_label":"Baixar relatório · PDF, volume II",
+    "rights_note":"PDF integral disponibilizado pelo Arquivo Nacional. Fonte: Comissão Nacional da Verdade, Relatório, volume II, 2014. O capítulo sobre povos indígenas começa na página 203. A obra permite reprodução com citação da fonte."
+  },
+  "isa-terras": {
+    "authors":[{"name":"Instituto Socioambiental","bio":"Instituição responsável pelo portal de referência Terras Indígenas no Brasil. Consulte a fonte para conhecer a equipe e a metodologia de cada material.","url":"https://www.ti.socioambiental.org/pt-br"}],
+    "rights_note":"Portal de referência. Não há arquivo integral para download cadastrado nesta ficha."
+  }
+}

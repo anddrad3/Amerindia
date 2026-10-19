@@ -1,4 +1,5 @@
 import {getCatalog} from '../core/api.js';
+import {researchDetails} from './details.js';
 import {el,externalLink,matches,normalize,voiceLabels} from '../core/dom.js';
 export async function initResearch() {
   const grid = document.querySelector('#research-grid'), count = document.querySelector('#research-count');
@@ -25,6 +26,7 @@ export async function initResearch() {
     result.forEach(item => {
       const card=el('article','research-card');
       card.append(el('span','tag',voiceLabels[item.voice]),el('h2','',item.title),el('p','author',item.author),el('p','',item.summary),el('p','metadata',`${item.year ?? 'Portal de referência'} · ${item.region} · ${item.topic}`),externalLink(item.url,'Consultar fonte original ↗'));
+      const details=el('button','button small detail-trigger','Pesquisa & autoria ↗');details.type='button';details.addEventListener('click',()=>researchDetails(item));card.append(details);
       grid.append(card);
     });
     if (!result.length) {

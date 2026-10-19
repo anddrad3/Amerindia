@@ -7,13 +7,18 @@ $title = $titles[$page] ?? 'Ameríndia';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f6f2">
+  <meta name="theme-color" content="#08080a">
+  <script src="/assets/js/core/theme.js"></script>
   <meta name="description" content="Um espaço de encontro entre territórios, histórias, pesquisas e vozes indígenas.">
   <title><?= e($title) ?> · Ameríndia</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="stylesheet" href="/assets/css/<?= e($page === 'territories' ? 'map' : 'pages') ?>.css">
+  <link rel="stylesheet" href="/assets/css/themes.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+  <link rel="stylesheet" href="/assets/css/details.css">
+  <?php if ($page === 'territories'): ?><link rel="stylesheet" href="/assets/css/board.css"><?php endif; ?>
   <?php if ($page === 'territories'): ?><link rel="stylesheet" href="/vendor/leaflet/leaflet.css"><script src="/vendor/leaflet/leaflet.js" defer></script><?php endif; ?>
   <script type="module" src="/assets/js/app.js"></script>
 </head>
@@ -23,6 +28,7 @@ $title = $titles[$page] ?? 'Ameríndia';
 <main id="main"><?php require ROOT . '/templates/pages/' . $page . '.php'; ?></main>
 <?php if ($page !== 'territories') { require ROOT . '/templates/partials/footer.php'; } ?>
 <?php require ROOT . '/templates/partials/search.php'; ?>
+<?php require ROOT . '/templates/partials/menu.php'; ?>
 <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
 </body>
 </html>

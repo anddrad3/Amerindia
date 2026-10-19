@@ -5,7 +5,12 @@ use Amerindia\Database;
 final class Catalog {
     public function __construct(private Database $db) {}
     public function research(): array {
-        return $this->db->pdo->query("SELECT id,title,author,voice,people,region,period,topic,year,summary,url FROM research WHERE status='published' ORDER BY year DESC,title")->fetchAll();
+        $items = $this->db->pdo->query("SELECT r.id,title,author,voice,people,region,period,topic,year,summary,url,d.authors_json,d.download_url,d.download_label,d.rights_note FROM research r LEFT JOIN research_details d ON r.id=d.research_id WHERE status='published' ORDER BY year DESC,title")->fetchAll();
+        foreach ($items as &$item) {
+            $item['authors'] = json_decode($item['authors_json'] ?? '[]', true, 512, JSON_THROW_ON_ERROR);
+            unset($item['authors_json']);
+        }
+        return $items;
     }
     public function territories(): array {
         $items = $this->db->pdo->query('SELECT * FROM territories ORDER BY name')->fetchAll();

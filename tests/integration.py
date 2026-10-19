@@ -71,6 +71,28 @@ class AppTests(unittest.TestCase):
     def test_private_files_are_inaccessible(self):
         for path in ['/storage/amerindia.sqlite', '/.git/config', '/config/local.php', '/src/Database.php', '/bin/console.php', '/../database/schema.sql', '/database/seed/research.json']:
             self.assertEqual(self.call(path)[0], 404, path)
+    def test_research_details_and_authorized_download_import(self):
+        items = json.loads(self.call('/api/catalog')[2])['research']
+        book = next(item for item in items if item['id'] == 'queda-do-ceu')
+        report = next(item for item in items if item['id'] == 'cnv')
+        self.assertEqual(len(book['authors']), 2)
+        self.assertFalse(book['download_url'])
+        self.assertTrue(report['download_url'].startswith('https://www.gov.br/'))
+        fixture = {**book, 'id': 'test-public-download', 'download_url': 'https://example.com/paper.pdf', 'download_label': 'Pesquisa PDF', 'rights_note': 'Autorização editorial de teste.'}
+        path = Path(self.tmp.name) / 'research-details.json'
+        path.write_text(json.dumps(fixture), encoding='utf-8')
+        self.assertNotEqual(self.cli('research:import', str(path), '--editorial-reviewed').returncode, 0)
+        fixture['download_authorized'] = True
+        fixture['authors'][0]['url'] = 'javascript:alert(1)'
+        path.write_text(json.dumps(fixture), encoding='utf-8')
+        self.assertNotEqual(self.cli('research:import', str(path), '--editorial-reviewed').returncode, 0)
+        fixture['authors'][0]['url'] = 'https://example.com/author'
+        path.write_text(json.dumps(fixture), encoding='utf-8')
+        result = self.cli('research:import', str(path), '--editorial-reviewed')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        imported = next(item for item in json.loads(self.call('/api/catalog')[2])['research'] if item['id'] == fixture['id'])
+        self.assertEqual(imported['download_url'], fixture['download_url'])
+        self.assertEqual(imported['authors'], fixture['authors'])
     def test_csrf_and_origin(self):
         self.assertEqual(self.post(self.payload(csrf='invalid-test-token'))[0], 403)
         self.assertEqual(self.post(self.payload(), origin='https://other.example')[0], 403)

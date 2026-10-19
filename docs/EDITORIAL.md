@@ -49,6 +49,12 @@ Para referência bibliográfica externa independente, omita `--submission`; isso
 
 O link deve ser HTTPS. Um PDF de pesquisa próprio, após aprovação e exame de segurança, pode ser publicado por um operador em `public/publicacoes/` com nome estável e metadados revisados. Nunca copie o termo assinado, documentos de contato ou anexos brutos indiscriminadamente para essa pasta. A primeira versão não automatiza a publicação de arquivos nem inclui uma tela web administrativa.
 
+### Fichas de autoria e downloads
+
+O importador de pesquisa aceita `authors` como lista de objetos `{name,bio,url}` com fonte HTTPS. Para oferecer download, adicione `download_url`, `download_label`, `rights_note` e `download_authorized: true` **após** conferir autorização/licença. Esses metadados ficam em `research_details`, no SQLite. Sem download autorizado, a ficha mostra apenas a referência original. As fichas aparecem no acervo e nos cards relacionados do board.
+
+As biografias iniciais foram resumidas a partir das fontes indicadas em cada perfil. O PDF da CNV é aberto diretamente no Arquivo Nacional; a informação de reprodução com citação consta na página de créditos do volume II. Nenhum anexo privado recebido é transformado automaticamente em download.
+
 ## Importar um mapa temporal
 
 Importe uma **Feature** GeoJSON WGS84 (longitude, latitude), Polygon ou MultiPolygon. Ela deve conter `id`, `name`, `people`, `region`, `description`, `official_status`, `source_url` HTTPS, `source_date`, `retrieved_at` AAAA-MM-DD, `valid_from` e `valid_to` inteiros. Os períodos são inclusivos. Uma terra pode ter vários recortes, mas intervalos sobrepostos são recusados.
